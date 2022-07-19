@@ -28,3 +28,13 @@ app.get('/scores', (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     const scores = yield prisma.score.findMany();
     return res.json(scores);
 }));
+app.post('/scores', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { score, user_id } = req.body;
+    const result = yield prisma.score.create({
+        data: {
+            score,
+            user_id,
+        },
+    });
+    return res.json(result);
+}));

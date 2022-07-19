@@ -22,3 +22,15 @@ app.get('/scores', async (req, res) => {
   return res.json(scores);
 });
 
+
+app.post('/scores', async (req, res) => {
+  const { score, user_id } = req.body;
+  const result = await prisma.score.create({
+    data: {
+      score,
+      user_id,
+    },
+  });
+  return res.json(result);
+});
+

@@ -1,0 +1,14 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: node_score
+    volumes:
+      - /usr/src/node_modules
+      - .:/usr/src/app
+    command: yarn prod
+    ports:
+      - "3000:3000"
+      - "5555:5555"
