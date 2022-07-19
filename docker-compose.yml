@@ -1,18 +1,5 @@
 version: '3'
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: node_score
-    volumes:
-      - /usr/src/node_modules
-      - .:/usr/src/app
-    command: yarn dev
-    ports:
-      - "3000:3000"
-      - "5555:5555"
-
   postgres:
     image: postgres:latest
     restart: always
@@ -39,6 +26,20 @@ services:
       - pgadmin:/var/lib/pgadmin
     depends_on:
       - postgres
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: node_score
+    volumes:
+      - /usr/src/node_modules
+      - .:/usr/src/app
+    command: yarn dev
+    ports:
+      - "3000:3000"
+      - "5555:5555"
+
 
 volumes:
   postgres:
