@@ -9,7 +9,7 @@
     "build": "npx tsc",
     "build:watch": "npx tsc -w",
     "dev": "yarn run build:watch & yarn start",
-    "prod": "yarn run build:watch & yarn run initDB & yarn start"
+    "prod": "yarn run build & yarn run initDB & yarn start"
 
   },
   "devDependencies": {
